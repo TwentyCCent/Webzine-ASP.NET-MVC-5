@@ -19,7 +19,7 @@ namespace Webzine.EntitiesContext
             : base("WebzineDbContext")
         {
             // Initialisation de la base de données avec amorçage
-            // Database.SetInitializer(new WebzineDbInitializer());
+            Database.SetInitializer(new WebzineDbInitializer());
 
             // Log des requêtes SQL
             this.Database.Log = (sql) => System.Diagnostics.Debug.WriteLine(sql);
