@@ -1,0 +1,33 @@
+﻿
+@{
+    @model Webzine.ViewModels.TitreViewModel
+}
+
+<h1 class="">@Html.ActionLink(@Model.Artiste.Nom, "artiste", new { id = @Model.Artiste.IdArtiste }) - @Model.Libelle</h1>
+
+<div class="row" style="display: flex; justify-content:space-between; margin-block-end:10px;">
+    <p class="text-nowrap" style="margin-top: 5px"><i class="fas fa-calendar me-1"></i> Le @Model.DateCreation.ToString("dd/MM/yyyy à HH:mm")</p>
+    <p class="text-nowrap" style="margin-top: 5px"><i class="fas fa-heart"></i> @Model.NbLikes</p>
+    <form method="post" class="text-nowrap" >
+        <button type="submit" class=" btn btn-outline-primary"><i class="fas fa-thumbs-up"></i> Like</button>
+    </form>
+    <a class="text-nowrap" href="@Url.Action("edit", "titre", new { area = "admin", id=@Model.IdTitre})" style="margin-top: 5px"><i class="fas fa-edit"></i> Editer</a>
+</div>
+
+<div class="divImgChronique row" style="margin-block-end:20px;">
+    <img class="imgJaquetteTitre col-sm-3" src="@Model.UrlJaquette" alt="Img Titre" />
+    <p class="col-sm-9">@Model.Chronique</p>
+</div>
+
+<div class="row" style="margin:0px;">
+    @if (@Model.UrlEcoute != "" && @Model.UrlEcoute != null)
+    {
+        <div class="embed-responsive embed-responsive-4by3">
+            <iframe class="embed-responsive-item" src="@Model.UrlEcoute" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+    }
+    else
+    {
+    <p class="text-nowrap">Il n'y pas de lien d'écoute pour ce titre, si vous souhaitez en ajouter une cliquez @Html.ActionLink("ici", "edit", "titre", new { area = "admin", id = @Model.IdTitre }, null)</p>
+    }
+</div>

@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Webzine</title>
+    @Scripts.Render("~/bundles/font-awesome")
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    @Html.Partial("_Navbar")
+    <div class="container-fluid body-content" style="margin-block-end: 50px;">
+        <div class="row h-100">
+            <div class="page col-xxl-10 col-xl-10 col-md-9 col-sm-12 col-xs-12">
+                <!-- Render -->
+                @RenderBody()
+            </div>
+            <div class="sidebar col-xxl-2 col-xl-2 col-xl-2 col-md-3 col-sm-12 col-xs-12">
+                <!-- Sidebar coté droit -->
+                @{ 
+                    Html.RenderAction("RenderSidebar", "Home", new { area = ""});
+                }
+            </div>
+        </div>
+    </div>
+    @Html.Partial("_Footer")
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

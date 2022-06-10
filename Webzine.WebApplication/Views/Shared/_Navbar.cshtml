@@ -1,0 +1,35 @@
+﻿<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            @Html.ActionLink("Webzine", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="@Url.Action("index", "home", new { area = ""})"><i class="fas fa-home"></i> Accueil</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fas fa-tools"></i> Administration <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="@Url.Action("index", "artiste", new { area = "admin"})"><i class="fas fa-users"></i> Artistes</a></li>
+                        <li><a href="@Url.Action("index", "titre", new { area = "admin"})"><i class="fas fa-music"></i> Titres</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#">Tableau de bord</a></li>
+                    </ul>
+                </li>
+                <li><a href="@Url.Action("contact", "home", new { area = ""})"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+            @using (Html.BeginForm("recherche", "home", new { area = "" }, FormMethod.Post,  new { @class = "navbar-form navbar-right" }))
+            {
+                @Html.AntiForgeryToken()
+                    <div class="form-group">
+                        <input name="research" type="text" class="form-control" placeholder="Recherche">
+                    </div>
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+            }
+            </div>
+    </div>
+</div>

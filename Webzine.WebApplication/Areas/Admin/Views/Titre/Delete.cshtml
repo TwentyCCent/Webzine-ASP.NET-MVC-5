@@ -1,0 +1,120 @@
+﻿@model Webzine.ViewModels.TitreViewModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Supprimer un artiste</h2>
+
+<h3>Etes vous sûr de vouloir supprimer le titre "@Model.Libelle" ?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.IdTitre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdTitre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdArtiste)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdArtiste)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Libelle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Libelle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lien)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lien)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Chronique)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Chronique)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UrlJaquette)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrlJaquette)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UrlEcoute)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UrlEcoute)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateCreation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateCreation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateSortie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateSortie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Duree)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Duree)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NbLectures)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NbLectures)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NbLikes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NbLikes)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Supprimer" class="btn btn-default" /> |
+            @Html.ActionLink("Retour à l'administration des titres", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,33 @@
+﻿
+@{
+    @model Webzine.ViewModels.ArtistesViewModel
+}
+
+
+<h2>Artistes</h2>
+<hr />
+
+<!-- lien vers le formulaire d'ajout d'un artiste -->
+@Html.ActionLink("Ajouter un nouvel artiste", "create", "artiste", new { area = "admin" }, new { @class = "btn btn-primary" })
+
+<!-- tableau qui affiche tout les artistes ainsi que les liens qui permet de les modifiers ou de les supprimers -->
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr class="table-active">
+            <th class="col-10" scope="col">Nom de l'artiste</th>
+            <th class="col-2 text-center" scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var artiste in @Model.Artistes)
+        {
+            <tr>
+                <td>@artiste.Nom</td>
+                <td class="text-center">
+                    <a href="@Url.Action("edit", "artiste", new { area = "admin", id=artiste.IdArtiste})"><i class="fas fa-edit"></i></a>
+                    <a href="@Url.Action("delete", "artiste", new { area = "admin", id=artiste.IdArtiste})"><i class="fas fa-trash"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

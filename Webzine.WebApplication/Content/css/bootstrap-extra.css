@@ -1,0 +1,59 @@
+﻿/* enrichit le CSS de BootStrap de manière générale */
+
+html {
+    -ms-overflow-style: scrollbar;
+}
+
+body {
+    padding-top: 74px;
+    padding-bottom: 20px;
+}
+
+.help-block, p {
+    text-align: justify;
+}
+
+form .required label:after, td.required:after {
+    color: #e32;
+    content: "*";
+    display: inline
+}
+
+table.table thead {
+    background: #F1F1F1 !important;
+}
+
+a.thumbnail:hover, a.thumbnail:focus {
+    text-decoration: none
+}
+
+@media screen and (min-width: 768px) {
+    label {
+        font-weight: normal;
+    }
+}
+
+.pre {
+    font-family: Monaco,Menlo,Consolas,Courier New,monospace;
+}
+
+/* alignement */
+.text-left, .table .text-left {
+    text-align: left !important;
+}
+
+.text-right, .table .text-right {
+    text-align: right !important;
+}
+
+.text-center, .table .text-center {
+    text-align: center !important;
+}
+
+a.thumbnail:hover, a.thumbnail:focus {
+    text-decoration: none
+}
+
+#card{
+    height: 100%;
+}

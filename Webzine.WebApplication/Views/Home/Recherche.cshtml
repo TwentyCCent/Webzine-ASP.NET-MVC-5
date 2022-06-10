@@ -1,0 +1,42 @@
+﻿@model Webzine.ViewModels.ResearchViewModel
+
+<h2>R&eacute;sultats de la recherche pour "@Model.ResearchString"</h2>
+<hr />
+<h2>Artistes</h2>
+
+@if (Model.Artistes.Count == 0)
+{
+    <content>Aucun artiste trouv&eacute</content>
+}
+else
+{
+    foreach (var artiste in Model.Artistes)
+    {
+        <li class="list-unstyled"><i class="fas fa-user"></i> @Html.ActionLink(artiste.Nom, "artiste", "home", new { id = artiste.IdArtiste }, new { })</li>
+    }
+}
+
+<h2>Titres</h2>
+@if (Model.Titres.Count == 0)
+{
+    <content>Aucun titre trouv&eacute</content>
+}
+else
+{
+    <ul class="list-unstyled">
+        @foreach (var titre in Model.Titres)
+        {
+            <li class="row" style="margin-bottom: 6px;">
+                <div class="col-sm-2 col-md-2 col-lg-2">
+                    <a href="@Url.Action("titre", "home", new { id = titre.IdTitre })"><img src=@titre.UrlJaquette class="img-responsive" alt="..."></a>
+                </div>
+                <div class="media-body">
+                    <div class="col-10">
+                        <h4>@Html.ActionLink(titre.Artiste.Nom, "artiste", new { id = titre.Artiste.IdArtiste }) - @Html.ActionLink(titre.Libelle, "titre", new { id = titre.IdTitre })</h4>
+                    </div>
+                    <p>Durée : @titre.Duree</p>
+                </div>
+            </li>
+        }
+    </ul>
+}

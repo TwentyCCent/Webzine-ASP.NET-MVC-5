@@ -1,0 +1,18 @@
+﻿@{
+    @model Webzine.ViewModels.ArtisteViewModel
+}
+
+
+<h1>@Model.Nom</h1>
+<hr />
+<img src="@Model.Image" class="img-responsive" alt="..." />
+
+<p>@Model.Biographie</p>
+
+
+<ol>
+    @foreach(var item in Model.Titres)
+    {
+        <li>@item.Libelle</li>
+    }
+</ol>
